@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerador de senhas seguras e criptografadas">
+    <link rel="stylesheet" href="styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Gerador de Senhas Seguras - AVSI Brasil</title>
+</head>
+
+<body>
+    <header>
+        <img src="/img/images-removebg-preview.png" alt="Logo Avsi Brasil">
+        <h1>Gerador de Senhas Seguras</h1>
+    </header>
+  
+    <main>
+        <form id="senhaForm">
+            <label for="quantidadeCaracteres">
+                <span>Quantidade de caracteres:</span>
+                <input type="number" id="quantidadeCaracteres" min="4" max="50" value="12" required>
+            </label>
+
+            <label for="prefixo">
+                <span>Prefixo (Opcional):</span>
+                <input type="text" id="prefixo" maxlength="20" placeholder="Ex: empresa, user, etc.">
+            </label>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="letraMaiuscula" checked>
+                <label for="letraMaiuscula">Incluir Letras Maiúsculas (A-Z)</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="letraMinuscula" checked>
+                <label for="letraMinuscula">Incluir Letras Minúsculas (a-z)</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="incluirNumeros" checked>
+                <label for="incluirNumeros">Incluir Números (0-9)</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="caracterEspecial" checked>
+                <label for="caracterEspecial">Incluir Caracteres Especiais (!@#$%&*)</label>
+            </div>
+
+            <button type="submit" aria-label="Gerar nova senha segura">
+                🔒 Gerar Senha
+            </button>
+        </form>
+
+        <!-- SEÇÃO: SENHAS MEMORÁVEIS -->
+        <section id="opcoesMemoraveis">
+            <h3>🎯 Opções de Senhas Memoráveis</h3>
+            
+            <div class="opcoes-memoraveis">
+                <div class="opcao-memoravel">
+                    <h4>Frase com Separadores</h4>
+                    <p>Exemplo: <code>Café@Manhã#2025</code></p>
+                    <button type="button" onclick="gerarSenhaFrase()" class="btn-memoravel">
+                        🧠 Gerar Senha Frase
+                    </button>
+                </div>
+                
+                <div class="opcao-memoravel">
+                    <h4>Combinação de Palavras</h4>
+                    <p>Exemplo: <code>GatoVerde@Rio25</code></p>
+                    <button type="button" onclick="gerarSenhaCombinacao()" class="btn-memoravel">
+                        🔄 Gerar Combinação
+                    </button>
+                </div>
+                
+                <div class="opcao-memoravel">
+                    <h4>Senha por Categoria</h4>
+                    <label for="categoriaPalavras">Escolha uma categoria:</label>
+                    <select id="categoriaPalavras">
+                        <option value="cotidiano">Cotidiano</option>
+                        <option value="comidas">Comidas</option>
+                        <option value="animais">Animais</option>
+                        <option value="profissoes">Profissões</option>
+                        <option value="cidades">Cidades</option>
+                        <option value="adjetivos">Adjetivos</option>
+                        <option value="verbos">Verbos</option>
+                        <option value="esportes">Esportes</option>
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="natureza">Natureza</option>
+                    </select>
+                    <button type="button" onclick="gerarSenhaCategoria()" class="btn-memoravel">
+                        📚 Gerar por Categoria
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultadoSenha" aria-live="polite">
+            <h2>Sua Nova Senha Segura:</h2>
+            <div id="senhaGerada">Clique em "Gerar Senha" para criar uma senha</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Gerador de Senhas Seguras</p>
+        <img src="/img/logo-cadeado.png" alt="logo-avsi-brasil">
+    </footer>
+    
+    <script src="js/palavras.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
